@@ -40,6 +40,50 @@ ON C.id_comisario = F.id_evento;
 5. Consulta de Complejos Polideportivos con Área Total Ocupada Superior a un Valor Específico.
 */
 
+SELECT I.area_complejo as Area_complejo, C.nombre AS Nombre_complejo
+FROM info_complejo AS I
+INNER JOIN complejo_polideportivo  AS C
+ON I.id_complejo = C.id_complejo_polideportivo
+WHERE Area_complejo > 60;
+
+/*
+6. Consulta de Eventos con Número de Participantes Mayor que la Media.
+*/
+
+SELECT  nombre,
+        num_participantes AS Participantes_mayor
+FROM evento
+WHERE num_participantes > (SELECT FORMAT(AVG(num_participantes), 0) FROM evento);
+
+
+/*
+7. Consulta de Equipamiento Necesario para un Evento Específico.
+*/
+
+
+-- los datos estan mal osea no tiene sentido que en el funbol se necesiten raquetal * my bad *
+
+
+
+SELECT  E.nombre AS Nombre_Equipamiento,
+        E.stock AS Stock,
+        V.nombre AS Nombre_Evento
+FROM equipamiento AS E
+INNER JOIN evento AS V
+ON E.id_equipamiento = V.id_evento
+WHERE V.nombre = 'Torneo de Futbol';
+
+/*
+8. Consulta de Eventos Celebrados en Complejos Deportivos con Jefe de Organización Específico.
+*/
+
+
+
+
+
+
+
+
 
 
 
