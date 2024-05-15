@@ -76,6 +76,19 @@ WHERE V.nombre = 'Torneo de Futbol';
 /*
 8. Consulta de Eventos Celebrados en Complejos Deportivos con Jefe de Organización Específico.
 */
+SELECT  J.nombre AS Nombre_jefe,
+        COUNT(J.id_jefe) AS Total_eventos,
+        E.nombre AS Nombre_evento
+FROM jefe AS J
+INNER JOIN evento AS E
+INNER JOIN complejo_deportivo AS C
+INNER JOIN evento_complejo_deportivo as EC
+ON J.id_jefe = E.id_evento
+WHERE  J.nombre = 'Jose Hernandez'
+GROUP BY Nombre_jefe ,Nombre_evento;
+
+
+
 
 
 /*
