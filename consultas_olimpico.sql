@@ -78,7 +78,26 @@ WHERE V.nombre = 'Torneo de Futbol';
 */
 
 
+/*
+ 9. Consulta de Complejos Polideportivos sin Eventos Celebrados.
+*/
 
+SELECT  E.nombre AS Nombre_Polideportivo
+FROM complejo_polideportivo AS E
+LEFT JOIN evento_complejo_poli AS V
+ON E.id_complejo_polideportivo = V.id_evento_complejo
+GROUP BY Nombre_Polideportivo;
+
+
+/*
+10. Consulta de Comisarios que Actúan como Jueces en Todos los Eventos.
+*/
+
+SELECT  C.nombre AS Nombre_Comisario
+FROM comisario AS C
+INNER JOIN evento_comisario AS V
+ON C.id_comisario = V.id_evento_comisario
+GROUP BY Nombre_Comisario;
 
 
 
