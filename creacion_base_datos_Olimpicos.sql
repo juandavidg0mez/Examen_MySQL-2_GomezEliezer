@@ -1,6 +1,8 @@
 CREATE DATABASE Olimpicos;
 USE Olimpicos;
 
+
+
 CREATE TABLE comisario(
     id_comisario INT(12) PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
@@ -47,12 +49,13 @@ CREATE TABLE info_complejo(
 -- este se especializa solo en un deporte entiendad  debil
 CREATE TABLE complejo_deportivo (
     id_complejo_deportivo INT(10) PRIMARY KEY,
-    nombre INT(10) NOT NULL,
+    nombre VARCHAR(255) NOT NULL,
     id_deporte INT(10) NOT NULL,
     id_info_complejo INT(10) NOT NULL,
     Foreign Key (id_info_complejo) REFERENCES info_complejo(id_complejo),
     Foreign Key (id_deporte) REFERENCES deporte(id_deporte)
 );
+
 
 -- este puede albergar varios deportes entidad debil
 CREATE TABLE complejo_polideportivo(
